@@ -1,0 +1,29 @@
+.listsongs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+.song {
+    border-color: #000000;
+    border-width: 1px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 10px;
+    border-style: solid;
+    cursor:pointer;
+}
+.song:hover{
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+}
+.song__titles{
+    font-weight: bold;
+    font-size: 20px;
+}
+.song__contents{
+    font-size: 18px;
+    
+}
+.song__titleSong{
+    text-align: center;
+}

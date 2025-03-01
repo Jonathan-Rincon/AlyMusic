@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from "react";
+import Header from "./components/Header";
+import Song from "./components/Song";
+import ListSongs from "./components/ListSongs";
+import "./components/song.css";
+//import './App.css';
 
-function App() {
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      listSongs: []
+    }
+  }
+  componentDidMount(){
+    const songList = new ListSongs();
+    const songs = songList.getSongs();
+    this.setState({listSongs: songs});
+    console.log("Se han cargado todas las canciones disponibles");
+  }
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header appName="AlyMusic"></Header>
+      <div className="listsongs">
+      {this.state.listSongs.map((song, index) => (
+        <Song 
+          key={index}
+          songTitle={song.songTitle}
+          songAuthor={song.songAuthor}
+          songAlbum={song.songAlbum}
+          songDuration={song.songDuration}
+        />
+      ))}
+      </div>
     </div>
+ 
   );
+}
 }
 
 export default App;
