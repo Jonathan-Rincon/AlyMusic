@@ -1,8 +1,4 @@
-.listsongs{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-}
+
 .song {
     border-color: #000000;
     border-width: 1px;
@@ -26,4 +22,13 @@
 }
 .song__titleSong{
     text-align: center;
+}
+.song__add{
+    cursor:pointer;
+}
+.song__add:hover {
+    background-color: rgb(198 255 229);
+    font-weight: bold;
+    font-size: 14px;
+
 }

@@ -1,0 +1,12 @@
+.main {
+    background-color: rgb(198 255 229);
+}
+.listsongs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+.search__title{
+    text-align: center;
+}

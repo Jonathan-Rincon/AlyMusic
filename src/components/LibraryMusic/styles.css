@@ -1,0 +1,31 @@
+.library__title{
+    text-align: center;
+}
+
+.songSaved {
+    border-color: #000000;
+    border-width: 1px;
+    background-color: #c2bfbf;
+    border-radius: 10px;
+    padding: 10px;
+    border-style: solid;
+    cursor:pointer;
+    margin-bottom:10px;
+}
+.songSaved:hover{
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+}
+.songSaved__titles{
+    font-weight: bold;
+    font-size: 14px;
+}
+.songSaved__contents{
+    font-size: 14px;
+    
+}
+.songSaved__titleSong{
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
