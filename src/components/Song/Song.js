@@ -1,15 +1,27 @@
-import React  from 'react';
+import React from 'react';
 import "./song.css";
+import { Link } from 'react-router-dom';
 
-const Song = ({songTitle, songAuthor, songAlbum, songDuration, addSong}) => {
+const Song = ({ idTrack, songTitle, songAuthor, songAlbum, songDuration, addSong }) => {
     return (
-    <div className="song">
-        <h2 className="song__titleSong">{songTitle}</h2>
-        <div><span className="song__titles">Autor: </span><span className="song__contents">{songAuthor}</span></div>
-        <div><span className="song__titles">Album: </span><span className="song__contents">{songAlbum}</span></div>
-        <div><span className="song__titles">Duración: </span><span className="song__contents">{songDuration}</span></div>
-        <div><button className="song__add" onClick={()=> addSong({songTitle, songAuthor, songAlbum, songDuration})}>Agregar a PlayList</button></div>
-    </div>
-    )
-}
+        <div className="song-card" key={idTrack}>
+            <h2 className="song-card__title">{songTitle}</h2>
+            <div className="song-card__info">
+                <p><span className="song-card__label">Autor:</span> {songAuthor}</p>
+                <p><span className="song-card__label">Álbum:</span> {songAlbum}</p>
+                <p><span className="song-card__label">Duración:</span> {songDuration}</p>
+            </div>
+            <div className="song-card__actions">
+                <button 
+                    className="song-card__button" 
+                    onClick={() => addSong({ songTitle, songAuthor, songAlbum, songDuration })}
+                >
+                    Agregar a PlayList
+                </button>
+                <Link to={`/song/${idTrack}`} className="song-card__link">Ver Detalles</Link>
+            </div>
+        </div>
+    );
+};
+
 export default Song;

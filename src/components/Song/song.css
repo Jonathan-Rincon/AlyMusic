@@ -1,34 +1,70 @@
 
-.song {
-    border-color: #000000;
-    border-width: 1px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    padding: 10px;
-    border-style: solid;
-    cursor:pointer;
-}
-.song:hover{
-    background-color: #e0e0e0;
-    transform: scale(1.02);
-}
-.song__titles{
-    font-weight: bold;
-    font-size: 20px;
-}
-.song__contents{
-    font-size: 18px;
-    
-}
-.song__titleSong{
+.song-card {
+    background: #ffffff;
+    border: 1px solid #0000001a;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px #0000001a;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    color: #2c3e50;
     text-align: center;
 }
-.song__add{
-    cursor:pointer;
-}
-.song__add:hover {
-    background-color: rgb(198 255 229);
-    font-weight: bold;
-    font-size: 14px;
 
+.song-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.song-card__title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.song-card__info p {
+    font-size: 16px;
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.song-card__label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.song-card__actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.song-card__button {
+    padding: 10px 15px;
+    background: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.song-card__button:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+.song-card__link {
+    color: #2c3e50;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.song-card__link:hover {
+    color: #3498db;
 }
