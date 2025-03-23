@@ -1,12 +1,13 @@
 import React from 'react';
-import "./header.css";
+import { AlyHeader, AlyTitle } from './styles';
+
 
 const Header = ({appName}) => {
 
     return (
-        <header className="header">
-                <h1>{appName}</h1>
-        </header>
+        <AlyHeader>
+                <AlyTitle>{appName}</AlyTitle>
+        </AlyHeader>
     )
 }
 export default Header;

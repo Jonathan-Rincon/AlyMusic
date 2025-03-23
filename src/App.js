@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from "react";
 import Header from "./components/Header/Header";
-import "./components/Song/song.css";
 import SearchResults from "./components/SearchResults";
 import LibraryMusic from "./components/LibraryMusic";
 import "./styles.css";
@@ -9,6 +8,9 @@ import SearchBar from "./components/SearchBar";
 import useFetch from "./hooks/useFetch";
 import axios from 'axios';
 import SongDetail from "./components/SongDetail";
+import { ThemeProvider } from "styled-components";
+import Theme from "./theme";
+import GlobalStyles from "./theme/GlobalStyles";
 
 
 
@@ -160,6 +162,8 @@ function App() {
     },[songsAdded]);
 
   return (
+    <ThemeProvider theme={Theme}>
+      <GlobalStyles />
     <div className="App">
       <Routes>
         <Route path="/"
@@ -217,6 +221,7 @@ function App() {
         <Route path="/song/:songId" element={<SongDetail />}></Route>
       </Routes>
     </div>
+    </ThemeProvider>  
   )
 }
 export default App;
