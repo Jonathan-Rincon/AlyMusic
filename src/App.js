@@ -2,7 +2,6 @@ import React, { useState, useEffect} from "react";
 import Header from "./components/Header/Header";
 import SearchResults from "./components/SearchResults";
 import LibraryMusic from "./components/LibraryMusic";
-import "./styles.css";
 import { Routes, Route } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
 import useFetch from "./hooks/useFetch";
@@ -11,6 +10,7 @@ import SongDetail from "./components/SongDetail";
 import { ThemeProvider } from "styled-components";
 import Theme from "./theme";
 import GlobalStyles from "./theme/GlobalStyles";
+import { MainSplit } from "./styles";
 
 
 
@@ -171,7 +171,7 @@ function App() {
           <>
           <Header appName="AlyMusic"></Header>
             <SearchBar form={form} handleInputChange={handleInputChange} handleSubmit={handleSubmit} handleKeyDown={handleKeyDown}/>
-          <div className="main-split">
+          <MainSplit>
             <LibraryMusic songsSaved={songsAdded}/>
             {/* Verifica primero que la carga esté completa antes de renderizar SearchResults */}
             {!loadingArtists && isDataLoaded ? (
@@ -214,7 +214,7 @@ function App() {
             ) : (
               <p>Cargando información...</p> // Mostrar mensaje genérico mientras se carga todo
             )}
-          </div>
+          </MainSplit>
           </>
         } 
         />
