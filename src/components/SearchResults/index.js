@@ -2,7 +2,8 @@ import React from "react";
 import Song from "../Song/Song";
 import { SearchResultsContainer, SearchResultsTitle, SearchResultsChildren, SearchResultsList, SongDuration} from "./styles.js";
 
-const SearchResults = ({ songs, addSong, children }) => {
+
+const SearchResults = ({ songs, children }) => {
   // Función para formatear la duración en milisegundos a "minutos:segundos"
   const formatDuration = (milliseconds) => {
     const totalSeconds = Math.floor(milliseconds / 1000); // Convertir milisegundos a segundos
@@ -10,6 +11,9 @@ const SearchResults = ({ songs, addSong, children }) => {
     const seconds = totalSeconds % 60; // Obtener los segundos restantes
     return `${minutes}:${seconds.toString().padStart(2, "0")}`; // Formato MM:SS
   };
+
+
+
 
   return (
     <SearchResultsContainer>
@@ -32,7 +36,6 @@ const SearchResults = ({ songs, addSong, children }) => {
                 {formatDuration(song.intDuration)}
               </SongDuration>
             }
-            addSong={addSong}
           />
         )})}
       </SearchResultsList>

@@ -55,11 +55,36 @@ const LibrarySongSavedContents = styled.span`
     color: #2c3e50;
     margin-left: 5px;
 `;
+const RemoveButton = styled.button`
+    background-color: #e74c3c; /* Color rojo para resaltar eliminación */
+    color: #ffffff; /* Color blanco para el texto */
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px); /* Animación al pasar el mouse */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        background-color: #c0392b; /* Color más oscuro al hacer hover */
+    }
+
+    &:active {
+        transform: translateY(0); /* Sin movimiento al hacer clic */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+`;
 export {
     LibraryList,
     LibraryTitle,
     LibrarySongSaved,
     LibrarySongSavedTitleSong,
     LibrarySongSavedTitles,
-    LibrarySongSavedContents
+    LibrarySongSavedContents,
+    RemoveButton
 }

@@ -11,6 +11,7 @@ import { ThemeProvider } from "styled-components";
 import Theme from "./theme";
 import GlobalStyles from "./theme/GlobalStyles";
 import { MainSplit } from "./styles";
+import { useSelector } from "react-redux";
 
 
 
@@ -24,6 +25,7 @@ function App() {
   const [albumIds, setAlbumIds] = useState([]);
   const [reload, setReload] = useState(0); 
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+
   
 
 
@@ -143,24 +145,6 @@ function App() {
       }
     }, [errorArtists, artists]);
 
-    const [songsAdded, setSongsAdded] = useState([]);//vacío inicialmente
-
-    const addSongToLibrary = (song) => {
-      setSongsAdded((prev) => {
-          if (!prev.some((s) => s.songTitle === song.songTitle)) //investigué sobre como hacer para que no se repita la cancion en la bibloteca
-            {
-              return [...prev, song];
-          }
-          return prev;
-      });
-    };
-    useEffect(() => {
-      if(songsAdded.length >0){ //comprueba que al menos haya una cancion agregada a la playlist, sino la agrega directamente
-          const songAdded = songsAdded[songsAdded.length -1];//definimos una variable que nos traera la ultima cancion usando el index (por eso se evalua el largo y se resta 1)
-          console.log(`Se ha agregado "${songAdded.songTitle}" a la bibloteca`);//habiendo identificado la ultima cancion, extraemos el parametro songTitle y lo mostramos.
-        }
-    },[songsAdded]);
-
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
@@ -172,10 +156,10 @@ function App() {
           <Header appName="AlyMusic"></Header>
             <SearchBar form={form} handleInputChange={handleInputChange} handleSubmit={handleSubmit} handleKeyDown={handleKeyDown}/>
           <MainSplit>
-            <LibraryMusic songsSaved={songsAdded}/>
+            <LibraryMusic />
             {/* Verifica primero que la carga esté completa antes de renderizar SearchResults */}
             {!loadingArtists && isDataLoaded ? (
-              <SearchResults songs={listSongs} addSong={addSongToLibrary}>
+              <SearchResults songs={listSongs}>
                 {/* Mostrar "Cargando canciones..." mientras isLoading sea true */}
                 {loadingArtists && <p>Cargando canciones...</p>}
 

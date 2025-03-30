@@ -1,8 +1,21 @@
 import React from "react";
 import { SongCard, SongCardTitle, SongCardInfo, SongCardLabel, SongCardActions, SongCardButton, SongCardLink} from "./styles.js";
+import { useDispatch } from 'react-redux';
+import {addSongs} from '../../redux/actions';
+const Song = ({ idTrack, songTitle, songAuthor, songAlbum, songDuration }) => {
 
-const Song = ({ idTrack, songTitle, songAuthor, songAlbum, songDuration, addSong }) => {
-  return (
+  const dispatch = useDispatch();
+
+const addSongToLibrary = (song) => {
+  dispatch(addSongs(
+    song.songid,
+    song.songTitle,
+    song.songAuthor,
+    song.songAlbum,
+    song.songDuration
+  ));
+};
+  return (  
     <SongCard key={idTrack}>
       <SongCardTitle>{songTitle}</SongCardTitle>
       <SongCardInfo>
@@ -17,7 +30,15 @@ const Song = ({ idTrack, songTitle, songAuthor, songAlbum, songDuration, addSong
         </p>
       </SongCardInfo>
       <SongCardActions>
-        <SongCardButton onClick={() => addSong({ songTitle, songAuthor, songAlbum, songDuration })}>
+        <SongCardButton
+          onClick={() => addSongToLibrary({ 
+            songid: idTrack,
+            songTitle,
+            songAuthor,
+            songAlbum,
+            songDuration 
+          })}
+        >
           Agregar a PlayList
         </SongCardButton>
         <SongCardLink to={`/song/${idTrack}`}>Ver Detalles</SongCardLink>
