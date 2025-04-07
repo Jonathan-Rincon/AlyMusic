@@ -31,15 +31,11 @@ const SearchResultsList = styled.div`
   gap: 10px;
   padding: 10px;
 `;
-const SongDuration = styled.span`
-  color: ${(props) => (props.isLong ? "red" : "inherit")};
-  font-weight: ${(props) => (props.isLong ? "bold" : "normal")};
-`;
+
 
 export {
   SearchResultsContainer,
   SearchResultsTitle,
   SearchResultsChildren,
   SearchResultsList,
-  SongDuration
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import Song from "../Song/Song";
-import { SearchResultsContainer, SearchResultsTitle, SearchResultsChildren, SearchResultsList, SongDuration} from "./styles.js";
-
+import { SearchResultsContainer, SearchResultsTitle, SearchResultsChildren, SearchResultsList, SongDuration } from "./styles.js";
 
 const SearchResults = ({ songs, children }) => {
   // Función para formatear la duración en milisegundos a "minutos:segundos"
@@ -12,9 +11,6 @@ const SearchResults = ({ songs, children }) => {
     return `${minutes}:${seconds.toString().padStart(2, "0")}`; // Formato MM:SS
   };
 
-
-
-
   return (
     <SearchResultsContainer>
       <div>
@@ -23,21 +19,19 @@ const SearchResults = ({ songs, children }) => {
       <SearchResultsChildren>{children}</SearchResultsChildren>
       <SearchResultsList>
         {songs.map((song) => {
-        const isLong = song.intDuration / 1000 / 60 > 5; // Determinar si la duración es mayor a 5 minutos
-        return (
-          <Song
-            key={song.idTrack}
-            idTrack={song.idTrack}
-            songTitle={song.strTrack}
-            songAuthor={song.strArtist}
-            songAlbum={song.strAlbum}
-            songDuration={
-              <SongDuration isLong={isLong}>
-                {formatDuration(song.intDuration)}
-              </SongDuration>
-            }
-          />
-        )})}
+          const isLong = song.intDuration / 1000 / 60 > 5; // Determinar si la duración es mayor a 5 minutos
+          return (
+            <Song
+              key={song.idTrack}
+              idTrack={song.idTrack}
+              songTitle={song.strTrack}
+              songAuthor={song.strArtist}
+              songAlbum={song.strAlbum}
+              songDuration={formatDuration(song.intDuration)} // Pasar un string serializable
+              isLong={isLong} // Opcional para estilos condicionales dentro de Song
+            />
+          );
+        })}
       </SearchResultsList>
     </SearchResultsContainer>
   );

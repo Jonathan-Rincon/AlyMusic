@@ -1,12 +1,13 @@
-import { applyMiddleware, compose, legacy_createStore as createStore } from "redux";
-import rootReducer from "./libraryReducer";
+import { configureStore } from '@reduxjs/toolkit';
+import libraryReducer from '../redux/slices/librarySlice';
+import searchReducer from '../redux/slices/searchSlice';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore (rootReducer, composeEnhancers(
-    applyMiddleware()
-));
+// Configurar el store con los reducers combinados
+const store = configureStore({
+    reducer: {
+        library: libraryReducer, // Reducer de librarySlice
+        search: searchReducer,  // Reducer de searchSlice
+    },
+});
 
 export default store;
-
-
-//use este codigo por que vi que al final del video anterior tenia esta estructura, supongo que para evitar la primera opcion que ya esta precaviada, cierto?

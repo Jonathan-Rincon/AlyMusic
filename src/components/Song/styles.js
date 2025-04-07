@@ -74,6 +74,10 @@ const SongCardLink = styled(Link)`
     color: #3498db;
   }
 `;
+const SongDuration = styled.span`
+  color: ${(props) => (props.$isLong ? "red" : "inherit")};
+  font-weight: ${(props) => (props.$isLong ? "bold" : "normal")};
+`;
 
 export { 
   SongCard, 
@@ -82,5 +86,6 @@ export {
   SongCardLabel, 
   SongCardActions, 
   SongCardButton, 
-  SongCardLink 
+  SongCardLink,
+  SongDuration 
 };
