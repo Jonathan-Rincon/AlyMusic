@@ -2,13 +2,13 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./components/Header/Header";
-import SearchBar from "./components/SearchBar";
-import LibraryMusic from "./components/LibraryMusic";
-import SearchResults from "./components/SearchResults";
+import SearchBar from "./components/SearchBar/index";
+import LibraryMusic from "./components/LibraryMusic/index";
+import SearchResults from "./components/SearchResults/index";
 import SongDetail from "./components/SongDetail";
 import { fetchSongs, resetResults } from "./redux/slices/searchSlice";
 import { ThemeProvider } from "styled-components";
-import Theme from "./theme";
+import Theme from "./theme/index";
 import GlobalStyles from "./theme/GlobalStyles";
 import { MainSplit } from "./styles";
 

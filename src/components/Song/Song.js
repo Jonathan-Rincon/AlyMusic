@@ -34,9 +34,10 @@ const Song = ({ idTrack, songTitle, songAuthor, songAlbum, songDuration, isLong 
         </p>
       </SongCardInfo>
       <SongCardActions>
-        <SongCardButton onClick={addSongToLibrary}>
+       <SongCardButton onClick={addSongToLibrary}>
           Agregar a Playlist
-        </SongCardButton>
+       </SongCardButton>
+
         <SongCardLink to={`/song/${idTrack}`}>Ver Detalles</SongCardLink>
       </SongCardActions>
     </SongCard>

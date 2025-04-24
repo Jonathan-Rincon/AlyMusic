@@ -25,25 +25,29 @@ const LibraryMusic = () => {
   return (
     <LibraryList>
       <LibraryTitle>Mi Biblioteca</LibraryTitle>
-      {songsSaved.map((song) => (
-        // Usa `song.songid` como valor único para la prop `key`
-        <LibrarySongSaved key={song.songid}>
-          <LibrarySongSavedTitleSong>{song.songTitle}</LibrarySongSavedTitleSong>
-          <div>
-            <LibrarySongSavedTitles>Autor: </LibrarySongSavedTitles>
-            <LibrarySongSavedContents>{song.songAuthor}</LibrarySongSavedContents>
-          </div>
-          <div>
-            <LibrarySongSavedTitles>Álbum: </LibrarySongSavedTitles>
-            <LibrarySongSavedContents>{song.songAlbum}</LibrarySongSavedContents>
-          </div>
-          <div>
-            <LibrarySongSavedTitles>Duración: </LibrarySongSavedTitles>
-            <LibrarySongSavedContents>{song.songDuration}</LibrarySongSavedContents>
-          </div>
-          <RemoveButton onClick={() => handleRemoveSong(song.songid)}>Eliminar</RemoveButton>
-        </LibrarySongSaved>
-      ))}
+      {songsSaved.length === 0 ? (
+        <p>No hay canciones en tu biblioteca</p> // Mensaje si no hay canciones
+      ) : (
+        songsSaved.map((song) => (
+          // Usa `song.songid` como valor único para la prop `key`
+          <LibrarySongSaved key={song.songid}>
+            <LibrarySongSavedTitleSong>{song.songTitle}</LibrarySongSavedTitleSong>
+            <div>
+              <LibrarySongSavedTitles>Autor: </LibrarySongSavedTitles>
+              <LibrarySongSavedContents>{song.songAuthor}</LibrarySongSavedContents>
+            </div>
+            <div>
+              <LibrarySongSavedTitles>Álbum: </LibrarySongSavedTitles>
+              <LibrarySongSavedContents>{song.songAlbum}</LibrarySongSavedContents>
+            </div>
+            <div>
+              <LibrarySongSavedTitles>Duración: </LibrarySongSavedTitles>
+              <LibrarySongSavedContents>{song.songDuration}</LibrarySongSavedContents>
+            </div>
+            <RemoveButton onClick={() => handleRemoveSong(song.songid)}>Eliminar</RemoveButton>
+          </LibrarySongSaved>
+        ))
+      )}
     </LibraryList>
   );
 };

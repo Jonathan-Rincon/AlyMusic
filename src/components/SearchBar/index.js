@@ -33,6 +33,7 @@ const SearchBar = ({ onSearch, onReset }) => {
           type="text"
           value={searchValue}
           onChange={handleInputChange}
+          placeholder="Buscar canciones"
         />
         <SearchBarButton type="submit">Buscar</SearchBarButton>
         <SearchBarButton type="button" onClick={handleReset}>
